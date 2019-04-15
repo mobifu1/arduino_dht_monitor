@@ -106,7 +106,7 @@ void setup() {
   tft.setRotation(1);//1=90 2=180 3=270
   tft.fillScreen(BLACK);
   ScreenText(WHITE, 5, 10 , 2, F("DHT22-Sensor-Monitor"));
-  ScreenText(WHITE, 5, 50 , 2, F("V0.1-Beta"));
+  ScreenText(WHITE, 5, 50 , 2, F("V0.2-Beta"));
   delay(3000);
   tft.fillScreen(BLACK);
 
@@ -322,14 +322,28 @@ void display_scale() {
   SetLines(WHITE , 0 , 119, 319, 119);
 
   SetLines(WHITE , 240 , 100, 245, 100);//0
+  SetLines(GRAY , 0 , 100, 239, 100);//0
+
   SetLines(WHITE , 240 , 75, 245, 75);//25
+  SetLines(GRAY , 0 , 75, 239, 75);//25
+
   SetLines(WHITE , 240 , 50, 245, 50);//50
+  SetLines(GRAY , 0 , 50, 239, 50);//50
+
   SetLines(WHITE , 240 , 25, 245, 25);//75
+  SetLines(GRAY , 0 , 25, 239, 25);//75
 
   SetLines(WHITE , 240 , 220, 245, 220);//0
+  SetLines(GRAY , 0 , 220, 239, 220);//0
+
   SetLines(WHITE , 240 , 195, 245, 195);//25
+  SetLines(GRAY , 0 , 195, 239, 195);//25
+
   SetLines(WHITE , 240 , 170, 245, 170);//50
+  SetLines(GRAY , 0 , 170, 239, 170);//50
+
   SetLines(WHITE , 240 , 145, 245, 145);//75
+  SetLines(GRAY , 0 , 145, 239, 145);//75
 }
 //--------------------------------------------------------------------------------------
 float taupunkt(float t, float h) {
