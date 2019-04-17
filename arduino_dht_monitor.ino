@@ -92,6 +92,8 @@ float t_0;
 float h_0;
 float t_1;
 float h_1;
+const float h_0_corr_factor = 0.86;
+const float h_1_corr_factor = 1.15;
 
 int table_temp_1[240] = {};
 int table_humy_1[240] = {};
@@ -106,7 +108,7 @@ void setup() {
   tft.setRotation(1);//1=90 2=180 3=270
   tft.fillScreen(BLACK);
   ScreenText(WHITE, 5, 10 , 2, F("DHT22-Sensor-Monitor"));
-  ScreenText(WHITE, 5, 50 , 2, F("V0.2-Beta"));
+  ScreenText(WHITE, 5, 50 , 2, F("V0.3-Beta"));
   delay(3000);
   tft.fillScreen(BLACK);
 
@@ -166,6 +168,7 @@ void measure_dht() {
 
   t_0 = dht_0.readTemperature();  // Read temperature as Fahrenheit (isFahrenheit = true)
   h_0 = dht_0.readHumidity();     // Read temperature as Celsius (the default)
+  h_0 *= h_0_corr_factor;
 
   display_values(0, int(t_0), int(h_0));
 
@@ -173,6 +176,7 @@ void measure_dht() {
 
   t_1 = dht_1.readTemperature();  // Read temperature as Fahrenheit (isFahrenheit = true)
   h_1 = dht_1.readHumidity();     // Read temperature as Celsius (the default)
+  h_1 *= h_1_corr_factor;
 
   display_values(1, int(t_1), int(h_1));
 }
